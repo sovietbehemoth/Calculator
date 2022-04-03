@@ -10,8 +10,8 @@ This calculator supports basic mathematical operations and the order of operatio
 | Check if rvalue or lvalue evaluate to 1 (true).
 ! Check if rvalue and lvalue are not equal.
 
-- minus.
-+ plus.
+\- minus.
+\+ plus.
 * multiply.
 / divide.
 ^ exponent.
