@@ -21,53 +21,6 @@ static bool is_empty_expr(char *expr) {
 
 
 
-static char *format_result(double result) {
-    int type = prim_cast(result);
-
-    //Should be resized if the decimal precision changes.
-    char *buffer = (char*) malloc(20);
-    
-    if (type == VALUE) {
-        sprintf(buffer, "%d", (int) result);
-        return buffer;
-    } else {
-        sprintf(buffer, "%f", result);
-    }
-
-    char *ap = (char*) malloc(20);
-
-
-    bool reached_out = false;
-
-    for (int i = strlen(buffer)-1; i >= 0; i--) {
-        if (buffer[i] != '0' && !reached_out) {
-            reached_out = true;
-        } else if (buffer[i] == '0' && i-1 > 0) {
-            if (buffer[i-1] == '.') {
-                reached_out = true;
-            }
-        }
-
-        if (reached_out) {
-            int end = strlen(ap);
-            ap[end] = buffer[i];
-        }
-    }
-
-
-    char *reverse = (char*) malloc(strlen(ap));
-
-    for (int i = strlen(ap)-1; i >= 0; i--) {
-        char d[2];
-        d[0] = ap[i];
-        d[1] = 0;
-        strcat(reverse, d);
-    }
-
-    return reverse;
-}
-
-
 
 double calculator(char *expr) {
     if (is_empty_expr(expr)) {
