@@ -338,7 +338,7 @@ void debug_astr(ASTR_t * ast, int type) {
             }
         } else if (cur.type == IDENTIFIER) {
             if (type == 0) printf("%s", cur.id);
-            else printf("Identifier: %s\n", cur.id);
+            else printf("Identifier: %s\n",cur.id);
         } else if (cur.type == VALUE) {
             if (type == 0) printf("%d", (int) cur.value);
             else printf("Number: %d\n", (int) cur.value);
